@@ -35,7 +35,7 @@ Workflow
 The worflow you can use to make a po file driven website / web app.
 
 * PoEditor or any other solution to edit .po files
-* po-to-json script to convert the po files to a json array that looks like :
+* [po-to-json script](https://github.com/guile2912/po-to-json.git) to convert the po files to a json array that looks like :
 
     content_dictionary_fr = {
         "Hello": "bonjour",
@@ -47,22 +47,7 @@ The worflow you can use to make a po file driven website / web app.
     app.lang = 'en'; //set the lang of the app
     content_dictionary = {'fr-ca' : content_dictionary_fr, 'en' : content_dictionary_en}; //our global dictionnary var
     $.i18n.setDictionary(content_dictionary[app.lang]); //load the dictionnary
-    $('[data-i18n]')._t(); //translate all the texts on the page
-
-
-for this to work, a small modification has been done in the jquery.i18n :
-
-    $.fn._t = function(str, params) {
-        if(str == undefined) {
-            $(this).each(function(key, value){
-               var $this = $(this);
-               $this.text($.i18n._($this.attr('data-i18n'), params));
-               });
-               return $(this);
-            }
-            else {
-            return $(this).text($.i18n._(str, params));
-            }
-    };
-
-
+    $('[data-i18n]').each(function(idx, elt){
+                var $this = $(this);
+                $this.text($.i18n._($this.attr('data-i18n')));
+            }); //translate all the texts on the page
