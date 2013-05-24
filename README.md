@@ -33,13 +33,16 @@ paramkey : the name of the parameter to look for in the HTML tags. Default to 'd
 Workflow
 ----------------------
 The worflow you can use to make a po file driven website / web app.
-PoEditor or any other solution to edit .po files
-po-to-json script to convert the po files to a json array that looks like :
+
+*PoEditor or any other solution to edit .po files
+*po-to-json script to convert the po files to a json array that looks like :
+
     content_dictionary_fr = {
         "Hello": "bonjour",
         "Delete": "Suprimmer"
     }
-A client side solution to translate the HTML content. I use jquery.i18n for this.
+
+*A client side solution to translate the HTML content. I use jquery.i18n for this.
 
     app.lang = 'en'; //set the lang of the app
     content_dictionary = {'fr-ca' : content_dictionary_fr, 'en' : content_dictionary_en}; //our global dictionnary var
