@@ -48,17 +48,17 @@ A client side solution to translate the HTML content. I use jquery.i18n for this
 
 
 for this to work, a small modification has been done in the jquery.i18n :
-      $.fn._t = function(str, params) {
-          if(str == undefined) {
-              $(this).each(function(key, value){
-                  var $this = $(this);
-                  $this.text($.i18n._($this.attr('data-i18n'), params));
-              });
-              return $(this);
-          }
-          else {
+    $.fn._t = function(str, params) {
+        if(str == undefined) {
+            $(this).each(function(key, value){
+               var $this = $(this);
+               $this.text($.i18n._($this.attr('data-i18n'), params));
+               });
+               return $(this);
+            }
+            else {
             return $(this).text($.i18n._(str, params));
-          }
-      };
+            }
+    };
 
 
